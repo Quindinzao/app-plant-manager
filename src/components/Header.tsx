@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 import userImg from '../assets/joao.png';
 import colors from '../styles/colors';
@@ -39,7 +39,7 @@ const styles = StyleSheet.create ({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // marginTop: getStatusBarHeight(),
+        marginTop: getStatusBarHeight(),
         paddingVertical: 20,
         width: '100%'
     },

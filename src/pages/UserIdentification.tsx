@@ -48,9 +48,18 @@ export function UserIdentification() {
         if (name.length > 10)
         return Alert.alert('Oops! 😬', 'Nome comprido demais! Tente algo de 1 a 10 letras')
 
-        await AsyncStorage.setItem('@plantmanager:user', name);
-
-        navigation.navigate('Confirmation')
+        try {
+            await AsyncStorage.setItem('@plantmanager:user', name);
+            navigation.navigate('Confirmation', {
+                title: 'Prontinho',
+                subtitle: 'Agora vamos começar a cuidar das suas plantinhas com muito carinho :)',
+                buttonTitle: 'Começar',
+                icon: 'smile',
+                nextScreen: 'PlantSelect'
+            })
+        } catch {
+            Alert.alert('Não foi posível salvar o seu nome 😢')
+        }
     }
 
     return (
